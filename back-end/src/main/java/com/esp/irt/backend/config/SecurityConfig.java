@@ -39,7 +39,7 @@ public class SecurityConfig {
         return http.cors().and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                    .requestMatchers("/api/signup", "/api/authenticate", "/h2-console/**").permitAll()
+                    .requestMatchers("/api/signup", "/api/authenticate", "/h2-console/**", "/api/inondationZones/**").permitAll()
                     .requestMatchers("/api/user/**", "/api/conge/**").hasAnyAuthority("USER", "MANAGER", "ADMIN")
                     .anyRequest().hasAnyAuthority("MANAGER", "ADMIN")
                 .and()

@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { InodationZonesComponent } from './components/inodation-zones/inodation-zones.component';
+import { FloudpredictionComponent } from './components/floudprediction/floudprediction.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { AdminComponent } from './components/admin/admin.component';
     SignupComponent,
     LoginComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    InodationZonesComponent,
+    FloudpredictionComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +29,7 @@ import { AdminComponent } from './components/admin/admin.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

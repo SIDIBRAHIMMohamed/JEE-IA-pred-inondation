@@ -4,13 +4,17 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { InodationZonesComponent } from './components/inodation-zones/inodation-zones.component';
+import { FloudpredictionComponent } from './components/floudprediction/floudprediction.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/signup', pathMatch: 'full' },
-  {path: 'signup', component: SignupComponent},
+  {path:'', redirectTo: '/signup', pathMatch: 'full' },
+  {path:'signup', component: SignupComponent},
   {path:'login', component :LoginComponent},
   {path:'user', component :UserComponent},
-  {path:'admin', component :AdminComponent},];
+  {path:'admin', component :AdminComponent},
+  {path:'floodpred', component :FloudpredictionComponent},
+  {path:'inondation', component :InodationZonesComponent},];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

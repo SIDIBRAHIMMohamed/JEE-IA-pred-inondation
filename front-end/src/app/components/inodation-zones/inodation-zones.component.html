@@ -1,0 +1,17 @@
+<button (click)="fetchZones()">Fetch Zones</button>
+<table>
+  <thead>
+    <tr>
+      <th>Ville</th>
+      <th>Date</th>
+      <th>Flooded</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let zone of zones">
+      <td>{{ zone.ville }}</td>
+      <td>{{ zone.date }}</td>
+      <td [ngClass]="{ 'flooded': zone.is_flooded, 'not-flooded': !zone.is_flooded }">{{ zone.is_flooded ? 'Yes' : 'No' }}</td>
+    </tr>
+  </tbody>
+</table>
