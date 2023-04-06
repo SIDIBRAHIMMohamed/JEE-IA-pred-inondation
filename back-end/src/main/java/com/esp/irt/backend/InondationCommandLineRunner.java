@@ -1,37 +1,24 @@
 package com.esp.irt.backend;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import com.esp.irt.backend.repository.InondationZoneRepository;
-
-import no.uib.cipr.matrix.DenseVector;
-import no.uib.cipr.matrix.Vector;
-
 import com.esp.irt.backend.entities.InondationZone;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import weka.classifiers.evaluation.Evaluation;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instances;
-import weka.core.SparseInstance;
-import weka.filters.Filter;
-import weka.filters.supervised.attribute.NominalToBinary;
-import weka.filters.unsupervised.attribute.StringToNominal;
 import weka.classifiers.functions.LinearRegression;
 import weka.core.Instance;
 
@@ -46,16 +33,16 @@ public class InondationCommandLineRunner implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 	  // Load data from Excel file
-      Workbook workbook = new XSSFWorkbook(new File("/home/dah/Downloads/zone d'innodation.xlsx"));
+      Workbook workbook = new XSSFWorkbook(new File("/home/aziz/Documents/zone d'innodation.xlsx"));
       Sheet sheet = workbook.getSheetAt(0);
       DataFormatter formatter = new DataFormatter();
-      Instances data = new Instances("InundationZoneData", getAttributes(), sheet.getPhysicalNumberOfRows());
+      Instances data = new Instances("InondationZoneData", getAttributes(), sheet.getPhysicalNumberOfRows());
       data.setClassIndex(6);
       List<InondationZone> zones = new ArrayList<>();
       for (int i = 1; i < 46; i++) {
           Row row = sheet.getRow(i);
           if (row != null) {
-//        	  double precipitation = Double.parseDouble(formatter.formatCellValue(row.getCell(0)));
+//        	    double precipitation = Double.parseDouble(formatter.formatCellValue(row.getCell(0)));
 //              double waterLevel = Double.parseDouble(formatter.formatCellValue(row.getCell(1)));
 //              double topography = Double.parseDouble(formatter.formatCellValue(row.getCell(2)));
 //              double riverCapacity = Double.parseDouble(formatter.formatCellValue(row.getCell(3)));
@@ -68,7 +55,7 @@ public class InondationCommandLineRunner implements CommandLineRunner {
               for (int j = 0; j < 6; j++) {
                   Cell cell = row.getCell(j);
                   if (cell != null) {
-                        instance.setValue(data.attribute(j), Double.parseDouble(formatter.formatCellValue(cell)));                     
+                        instance.setValue(data.attribute(j), Double.parseDouble(formatter.formatCellValue(cell)));
                   }
               }
               Cell cell = row.getCell(6);
