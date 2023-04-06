@@ -51,7 +51,7 @@ export class MapComponent implements OnInit {
         onEachFeature: (feature, layer) => {
           const cityName = feature?.properties.name;
           const cityNumber = feature?.properties.number;
-          const popupContent = `${cityName}: ${cityNumber * 100}%`;
+          const popupContent = `${cityName}, Risque d'inondation : ${cityNumber * 100}%`;
           layer.bindPopup(popupContent);
         }
       }).addTo(mymap);
