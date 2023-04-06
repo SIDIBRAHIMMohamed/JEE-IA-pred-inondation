@@ -22,6 +22,6 @@ public class InondationZone {
     private String soilType;
     private Date date;
     private String ville;
-    private boolean isFlooded;
+    private double flooded;
 
 }
