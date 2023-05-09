@@ -18,7 +18,7 @@ import com.esp.irt.backend.services.InondationZoneService;
 
 @RestController
 @RequestMapping("/api/inondationZones")
-public class InondationZonController {
+public class InondationZoneController {
 	private InondationZoneService inondationZoneService;
 
 	@Autowired

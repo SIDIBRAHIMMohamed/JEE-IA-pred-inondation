@@ -1,0 +1,9 @@
+html, body, #mapid {
+  width: 100%;
+  height: 1000px;
+}
+
+.leaflet-container {
+  font-size: 1em !important;
+}
+

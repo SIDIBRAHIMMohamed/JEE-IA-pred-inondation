@@ -1,16 +1,9 @@
 package com.esp.irt.backend;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import com.esp.irt.backend.repository.InondationZoneRepository;
-
-import no.uib.cipr.matrix.DenseVector;
-import no.uib.cipr.matrix.Vector;
-
 import com.esp.irt.backend.entities.InondationZone;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,15 +19,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import weka.classifiers.evaluation.Evaluation;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instances;
-import weka.core.SparseInstance;
-import weka.filters.Filter;
-import weka.filters.supervised.attribute.NominalToBinary;
-import weka.filters.unsupervised.attribute.StringToNominal;
 import weka.classifiers.functions.LinearRegression;
 import weka.core.Instance;
 
@@ -61,7 +49,7 @@ public class InondationCommandLineRunner implements CommandLineRunner {
       
 
 	  // Load data from Excel file
-      Workbook workbook = new XSSFWorkbook(new File("/home/dah/Downloads/zone d'innodation.xlsx"));
+      Workbook workbook = new XSSFWorkbook(new File("/home/aziz/Documents/zone d'innodation.xlsx"));
       Sheet sheet = workbook.getSheetAt(0);
       DataFormatter formatter = new DataFormatter();
       Instances data = new Instances("InundationZoneData", getAttributes(), sheet.getPhysicalNumberOfRows());
@@ -75,7 +63,7 @@ public class InondationCommandLineRunner implements CommandLineRunner {
               for (int j = 0; j < 5; j++) {
                   Cell cell = row.getCell(j);
                   if (cell != null) {
-                        instance.setValue(data.attribute(j), Double.parseDouble(formatter.formatCellValue(cell)));                     
+                        instance.setValue(data.attribute(j), Double.parseDouble(formatter.formatCellValue(cell)));
                   }
               }
               Cell cell = row.getCell(6);
