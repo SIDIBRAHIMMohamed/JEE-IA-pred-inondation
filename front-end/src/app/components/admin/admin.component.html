@@ -1,1 +1,11 @@
-<p>admin works!</p>
+<app-header></app-header>
+<form (ngSubmit)="navigate()" #fileUploadForm="ngForm" class="my-form">
+  <div class="form-group">
+    <label for="excelFile">Sélectionner un fichier Excel</label>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="excelFile" (change)="onExcelFileSelected($event)" required accept=".xls,.xlsx" [(ngModel)]="selectedFile" #excelFile="ngModel">
+      <div class="invalid-feedback" *ngIf="fileUploadForm.submitted && excelFile.invalid">Veuillez sélectionner un fichier Excel valide.</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>

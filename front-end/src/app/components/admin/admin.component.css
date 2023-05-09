@@ -1,0 +1,43 @@
+.my-form {
+    margin-top: 140px;
+  }
+  
+  .custom-file-input {
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+  }
+  
+  .custom-file-label::after {
+    content: "Choisir";
+  }
+  
+  .custom-file-label[aria-describedby][data-browse]::after {
+    content: attr(data-browse);
+  }
+  
+  .custom-file-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+  
+  .custom-file:hover .custom-file-label {
+    border-color: #b3b3b3;
+  }
+  
+  .custom-file:focus-within .custom-file-label {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    border-color: #80bdff;
+  }
+  
+  .invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+  

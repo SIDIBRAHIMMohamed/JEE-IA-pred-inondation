@@ -33,7 +33,7 @@ public class InondationCommandLineRunner implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 	  // Load data from Excel file
-      Workbook workbook = new XSSFWorkbook(new File("/home/aziz/Documents/zone d'innodation.xlsx"));
+      Workbook workbook = new XSSFWorkbook(new File("/home/mohamed/Downloads/zone d'innodation.xlsx"));
       Sheet sheet = workbook.getSheetAt(0);
       DataFormatter formatter = new DataFormatter();
       Instances data = new Instances("InondationZoneData", getAttributes(), sheet.getPhysicalNumberOfRows());
