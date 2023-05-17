@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -7,8 +7,14 @@ import { Router } from '@angular/router';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent {
-
+export class AdminComponent implements OnInit{
+  
+  ngOnInit(): void { 
+    const token = localStorage.getItem('auth-token');
+    if (!token) { 
+      this.router.navigate(['signup']);
+    }
+}
   selectedFile!: File ;
  
   constructor(private http: HttpClient,private router:Router){}
