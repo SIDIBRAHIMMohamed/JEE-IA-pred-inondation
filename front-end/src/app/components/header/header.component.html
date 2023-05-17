@@ -7,7 +7,7 @@
         <li><a routerLink="/user" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
         <li><a routerLink="/map" routerLinkActive="active">map</a></li>
         <li><a routerLink="/admin" routerLinkActive="active">admin</a></li>
-        <li><a routerLink="/signup" routerLinkActive="active">logout</a></li>
+        <li><a routerLinkActive="active" (click)="logout()">logout</a></li>
       </ul>
     </nav>
   </header>

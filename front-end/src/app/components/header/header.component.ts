@@ -10,4 +10,9 @@ export class HeaderComponent {
   constructor(private router: Router) { }
 
 
+  logout(): void {
+    localStorage.removeItem('auth-token');
+    this.router.navigate(['login']);
+  }
+
 }

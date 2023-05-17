@@ -11,15 +11,15 @@ import { UserComponent } from './components/user/user.component';
 import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
-  {path:'', redirectTo: '/signup', pathMatch: 'full' },
+  {path:'', redirectTo: '/user', pathMatch: 'full' },
   {path:'signup', component: SignupComponent},
   {path:'login', component :LoginComponent},
   {path:'admin', component :AdminComponent},
   {path:'floodpred', component :FloudpredictionComponent},
   {path:'inondation', component :InodationZonesComponent},
   {path:'map', component :MapComponent},
-  { path: 'user', component: UserComponent },
-  { path: 'visualiser', component: VisualiserComponent },
+  {path: 'user', component: UserComponent },
+  {path: 'visualiser', component: VisualiserComponent },
   {path:'graph', component :MapComponent},
   
 ];
