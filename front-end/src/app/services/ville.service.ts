@@ -14,6 +14,6 @@ export class VilleService {
   villes: Ville[]=[];
      
   getAllVilles():Observable<Ville[]>{
-    return this.http.get<Ville[]>('http://localhost:3000/villes');
+    return this.http.get<Ville[]>('http://localhost:8082/api/inondationZones');
   }
 }
