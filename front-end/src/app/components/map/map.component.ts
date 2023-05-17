@@ -3,6 +3,7 @@ import * as L from 'leaflet';
 import { Control } from 'leaflet';
 import * as d3 from 'd3';
 import { HttpClient } from '@angular/common/http';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-map',

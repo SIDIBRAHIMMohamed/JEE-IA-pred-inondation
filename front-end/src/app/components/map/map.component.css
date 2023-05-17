@@ -6,4 +6,19 @@ html, body, #mapid {
 .leaflet-container {
   font-size: 1em !important;
 }
+/* Styles pour le composant Header */
+Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  
+}
+
+/* Styles pour le composant Map */
+#mapid {
+  margin-top: 100px;
+}
+
 

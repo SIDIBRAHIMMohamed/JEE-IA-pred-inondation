@@ -5,7 +5,6 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 1300px; /* vous pouvez ajuster cette valeur selon vos besoins */
     margin: 0 auto; /* centre le header horizontalement */
   }
   
