@@ -147,3 +147,82 @@
 2023-05-17 23:28:35 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones
 2023-05-17 23:28:35 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
 2023-05-17 23:28:35 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones
+2023-05-17 23:33:40 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones
+2023-05-17 23:33:40 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:33:40 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones
+2023-05-17 23:48:23 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7af2ee23, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d10e2b6, org.springframework.security.web.context.SecurityContextHolderFilter@3358805a, org.springframework.security.web.header.HeaderWriterFilter@e75bae7, org.springframework.web.filter.CorsFilter@267309f7, org.springframework.security.web.authentication.logout.LogoutFilter@294b045b, com.esp.irt.backend.config.JwtRequestFilter@6ffa8126, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@642b71d6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@258291de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46878216, org.springframework.security.web.session.SessionManagementFilter@46f041cb, org.springframework.security.web.access.ExceptionTranslationFilter@1390a43a, org.springframework.security.web.access.intercept.AuthorizationFilter@e353e1d]
+2023-05-17 23:48:23 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-05-17 23:48:23 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/h2-console/**']
+2023-05-17 23:48:24 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2023-05-17 23:49:29 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones
+2023-05-17 23:49:29 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:49:29 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones
+2023-05-17 23:49:35 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones
+2023-05-17 23:49:35 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:49:35 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones
+2023-05-17 23:49:37 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones
+2023-05-17 23:49:37 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:49:37 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones
+2023-05-17 23:49:37 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2023-05-17 23:49:37 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:49:37 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-05-17 23:49:37 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2023-05-17 23:49:37 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:49:37 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-05-17 23:49:45 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones
+2023-05-17 23:49:45 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:49:45 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones
+2023-05-17 23:50:04 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b69ff13, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7136ad9a, org.springframework.security.web.context.SecurityContextHolderFilter@7e916dc2, org.springframework.security.web.header.HeaderWriterFilter@6c2a33af, org.springframework.web.filter.CorsFilter@4fb42efa, org.springframework.security.web.authentication.logout.LogoutFilter@5263f554, com.esp.irt.backend.config.JwtRequestFilter@4acdf6e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@258291de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5625e7e1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35599228, org.springframework.security.web.session.SessionManagementFilter@77e261e3, org.springframework.security.web.access.ExceptionTranslationFilter@23169374, org.springframework.security.web.access.intercept.AuthorizationFilter@5d10e2b6]
+2023-05-17 23:50:04 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-05-17 23:50:04 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/h2-console/**']
+2023-05-17 23:50:05 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2023-05-17 23:52:06 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3dfaa1e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@796a7c9, org.springframework.security.web.context.SecurityContextHolderFilter@44ba9f25, org.springframework.security.web.header.HeaderWriterFilter@2eb0932c, org.springframework.web.filter.CorsFilter@44cab872, org.springframework.security.web.authentication.logout.LogoutFilter@74130456, com.esp.irt.backend.config.JwtRequestFilter@270ab7bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e5df971, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46f041cb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@452a32f2, org.springframework.security.web.session.SessionManagementFilter@4f2b1a2f, org.springframework.security.web.access.ExceptionTranslationFilter@8bd9d08, org.springframework.security.web.access.intercept.AuthorizationFilter@7d28efd5]
+2023-05-17 23:52:06 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-05-17 23:52:06 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/h2-console/**']
+2023-05-17 23:52:06 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e353e1d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a1c308b, org.springframework.security.web.context.SecurityContextHolderFilter@46f041cb, org.springframework.security.web.header.HeaderWriterFilter@4f9e9c21, org.springframework.web.filter.CorsFilter@d4dbb34, org.springframework.security.web.authentication.logout.LogoutFilter@21e15093, com.esp.irt.backend.config.JwtRequestFilter@24a1858a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@493489dd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@93c66ef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7af2ee23, org.springframework.security.web.session.SessionManagementFilter@3c7787a7, org.springframework.security.web.access.ExceptionTranslationFilter@2709e075, org.springframework.security.web.access.intercept.AuthorizationFilter@452a32f2]
+2023-05-17 23:52:06 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-05-17 23:52:06 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/h2-console/**']
+2023-05-17 23:52:07 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2023-05-17 23:52:08 [main] ERROR c.esp.irt.backend.BackEndApplication - This is error
+2023-05-17 23:52:13 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones
+2023-05-17 23:52:13 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-17 23:52:13 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones
