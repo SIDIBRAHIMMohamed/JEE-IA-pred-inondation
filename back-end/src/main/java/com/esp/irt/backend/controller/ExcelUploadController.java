@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,11 +29,20 @@ import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class ExcelUploadController {
     
     private ModelService modelService;
+
+    public ExcelUploadController() {
+        try {
+            modelService = new ModelService();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 	@Autowired
 	private InondationZoneRepository inondationZoneRepository;
@@ -62,15 +72,16 @@ public class ExcelUploadController {
                 pred.setValue(2, getTopography(i.getTopography()));   // topography
                 pred.setValue(3, i.getRiverCapacity()); // riverCapacity
                 pred.setValue(4, getSoilType(i.getSoilType()));   // topography
-                // pred.setDataset(data);
+                // pred.setDataset(data);                
                 double predictedZone = modelService.predict(pred);
                 i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
+                
                 inondationZones.add(i);
             }
             inondationZoneRepository.saveAll(inondationZones);
-            return ResponseEntity.ok().body("{\"message\": \"Data was predicted successfully\"}");
+            return ResponseEntity.ok().body("{\"message\": \"Prediction successfull\"}");
         } else {
-            return ResponseEntity.badRequest().body("Failed to predict data");
+            return ResponseEntity.badRequest().body("Failed to predict");
         }
     }
 
