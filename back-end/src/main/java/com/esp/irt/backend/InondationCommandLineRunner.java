@@ -25,7 +25,7 @@ import weka.core.DenseInstance;
 import weka.core.Instances;
 import weka.classifiers.functions.LinearRegression;
 import weka.core.Instance;
-
+import weka.core.SerializationHelper;
 
 @Component
 public class InondationCommandLineRunner implements CommandLineRunner {
@@ -92,6 +92,11 @@ public class InondationCommandLineRunner implements CommandLineRunner {
       System.out.println("Root mean squared error: " + evaluation.rootMeanSquaredError());
       System.out.println("R-squared: " + evaluation.correlationCoefficient());
       
+
+      // Save the model to a file
+        String filePath = "src/main/resources/model.model";
+        SerializationHelper.write(filePath, model);
+
     //   NKTT
         Instance nktt = new DenseInstance(getAttributes().size());
         InondationZone i = new InondationZone(null,0.8,10.0,"low",1000,"sand",new Date(), "Nktt",0.0);
