@@ -1,0 +1,18 @@
+<header >
+    <nav>
+      <div class="logo">
+        <img src="../../../assets/logo.jpeg" alt="logo">
+      </div>
+      <ul class="menu">
+        <li><a routerLink="/user" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+        <li><a routerLink="/map" routerLinkActive="active">map</a></li>
+        <li><a routerLink="/admin" routerLinkActive="active">admin</a></li>
+        <div *ngIf="hasToken">
+          <li><a routerLinkActive="active" (click)="logout()">logout</a></li>
+        </div>        
+      </ul>
+    </nav>
+  </header>
+
+ 
+  

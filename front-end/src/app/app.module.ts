@@ -12,6 +12,11 @@ import { InodationZonesComponent } from './components/inodation-zones/inodation-
 import { FloudpredictionComponent } from './components/floudprediction/floudprediction.component';
 import { NgChartsModule } from 'ng2-charts';
 import { MapComponent } from './components/map/map.component';
+import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule } from '@angular/cdk/table';
+import { UserComponent } from './components/user/user.component';
+import { HeaderComponent } from './components/header/header.component';
+import { VisualiserComponent } from './components/visualiser/visualiser.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,10 @@ import { MapComponent } from './components/map/map.component';
     AdminComponent,
     InodationZonesComponent,
     FloudpredictionComponent,
-    MapComponent
+    MapComponent,
+    UserComponent,
+    HeaderComponent,
+    VisualiserComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +38,12 @@ import { MapComponent } from './components/map/map.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgChartsModule,
+    MatTableModule,
+    CdkTableModule
+  ],
+  exports: [
+    MatTableModule,
+    CdkTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
