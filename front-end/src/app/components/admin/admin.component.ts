@@ -18,11 +18,8 @@ export class AdminComponent implements OnInit{
     if (!token) {
       this.router.navigate(['signup']);
     }
-    this.http.get('http://localhost:8082/api/inondationZones/lastInserted').subscribe(() => {
-        console.log(' successfully!');
-      });
 }
-  selectedFile!: File ;
+
 
   constructor(private http: HttpClient,private router:Router){}
 
@@ -52,9 +49,7 @@ export class AdminComponent implements OnInit{
 
   navigate():void{
         this.router.navigate(['visualiser']);
-
-    }
-
+  }
 
   onFileSelected(event: any) {
     this.file = event.target.files[0];
@@ -84,7 +79,6 @@ export class AdminComponent implements OnInit{
     }
     const headers = {
       'Content-Type': 'application/json',
-      'Accept': '*/*',
       'Authorization': 'Bearer ' + this.tokenjwt
     };
 
