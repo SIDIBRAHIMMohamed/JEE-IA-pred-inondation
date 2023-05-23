@@ -3189,3 +3189,76 @@ select i1_0.id,i1_0.date,i1_0.flooded,i1_0.precipitation,i1_0.river_capacity,i1_
 2023-05-18 20:54:18 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones/lastInserted
 2023-05-18 20:54:18 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
 2023-05-18 20:54:18 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones/lastInserted
+2023-05-23 15:27:25 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@14a488ed, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@433d5536, org.springframework.security.web.context.SecurityContextHolderFilter@216c6825, org.springframework.security.web.header.HeaderWriterFilter@4823f4d0, org.springframework.web.filter.CorsFilter@101eb529, org.springframework.security.web.authentication.logout.LogoutFilter@2d18d9ed, com.esp.irt.backend.config.JwtRequestFilter@78b2d29e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c4a8c93, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@145ce025, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a9b8f33, org.springframework.security.web.session.SessionManagementFilter@14060410, org.springframework.security.web.access.ExceptionTranslationFilter@43069adf, org.springframework.security.web.access.intercept.AuthorizationFilter@7444714e]
+2023-05-23 15:27:25 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-05-23 15:27:25 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/h2-console/**']
+2023-05-23 15:28:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@20c55658, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@951053f, org.springframework.security.web.context.SecurityContextHolderFilter@6c04310f, org.springframework.security.web.header.HeaderWriterFilter@7d6ccad7, org.springframework.web.filter.CorsFilter@e196238, org.springframework.security.web.authentication.logout.LogoutFilter@7ecf4608, com.esp.irt.backend.config.JwtRequestFilter@af007d6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28f7cca4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a8d03ce, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f45be6f, org.springframework.security.web.session.SessionManagementFilter@23f27434, org.springframework.security.web.access.ExceptionTranslationFilter@705ebb4d, org.springframework.security.web.access.intercept.AuthorizationFilter@472dc215]
+2023-05-23 15:28:28 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-05-23 15:28:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/h2-console/**']
+2023-05-23 15:28:29 [main] ERROR c.esp.irt.backend.BackEndApplication - This is error
+2023-05-23 15:30:09 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones/lastInserted
+2023-05-23 15:30:09 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:30:09 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones/lastInserted
+2023-05-23 15:31:34 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones/lastInserted
+2023-05-23 15:31:34 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:31:34 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones/lastInserted
+2023-05-23 15:31:43 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones/lastInserted
+2023-05-23 15:31:43 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:31:43 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones/lastInserted
+2023-05-23 15:34:47 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/authenticate
+2023-05-23 15:34:47 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:34:47 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/authenticate
+2023-05-23 15:34:47 [http-nio-8082-exec-6] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'admin'
+2023-05-23 15:34:47 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2023-05-23 15:34:47 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:34:47 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-05-23 15:34:48 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/authenticate
+2023-05-23 15:34:48 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:34:48 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/authenticate
+2023-05-23 15:34:48 [http-nio-8082-exec-7] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'admin'
+2023-05-23 15:34:48 [http-nio-8082-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2023-05-23 15:34:48 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:34:48 [http-nio-8082-exec-7] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-05-23 15:34:53 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/authenticate
+2023-05-23 15:34:53 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:34:53 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/authenticate
+2023-05-23 15:34:53 [http-nio-8082-exec-8] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'admin'
+2023-05-23 15:34:53 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2023-05-23 15:34:53 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:34:53 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-05-23 15:35:01 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/authenticate
+2023-05-23 15:35:01 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:35:01 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/authenticate
+2023-05-23 15:35:01 [http-nio-8082-exec-9] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'admin'
+2023-05-23 15:35:01 [http-nio-8082-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2023-05-23 15:35:01 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:35:01 [http-nio-8082-exec-9] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-05-23 15:35:01 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/authenticate
+2023-05-23 15:35:01 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:35:01 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/authenticate
+2023-05-23 15:35:02 [http-nio-8082-exec-10] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Failed to find user 'admin'
+2023-05-23 15:35:02 [http-nio-8082-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2023-05-23 15:35:02 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:35:02 [http-nio-8082-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-05-23 15:39:51 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/signup
+2023-05-23 15:39:51 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:39:51 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/signup
+2023-05-23 15:40:50 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/signup
+2023-05-23 15:40:50 [http-nio-8082-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:40:50 [http-nio-8082-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/signup
+2023-05-23 15:41:02 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/signup
+2023-05-23 15:41:02 [http-nio-8082-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:41:02 [http-nio-8082-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/signup
+2023-05-23 15:41:09 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /api/authenticate
+2023-05-23 15:41:09 [http-nio-8082-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:41:09 [http-nio-8082-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /api/authenticate
+2023-05-23 15:41:09 [http-nio-8082-exec-4] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2023-05-23 15:41:16 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones/lastInserted
+2023-05-23 15:41:16 [http-nio-8082-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:41:16 [http-nio-8082-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones/lastInserted
+2023-05-23 15:41:34 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones/lastInserted
+2023-05-23 15:41:34 [http-nio-8082-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:41:34 [http-nio-8082-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones/lastInserted
+2023-05-23 15:49:15 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/inondationZones/lastInserted
+2023-05-23 15:49:15 [http-nio-8082-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-05-23 15:49:15 [http-nio-8082-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/inondationZones/lastInserted
