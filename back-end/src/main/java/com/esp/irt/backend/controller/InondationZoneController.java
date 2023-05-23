@@ -52,4 +52,9 @@ public class InondationZoneController {
     public void deleteInundationZoneById(@PathVariable Long id) {
         inondationZoneService.deleteInondationZoneById(id);
     }
+
+    @GetMapping("/lastInserted")
+    public List<InondationZone> getLastInsertedInondationZone() {
+        return inondationZoneService.geLastInsertedInondationZone();
+    }
 }

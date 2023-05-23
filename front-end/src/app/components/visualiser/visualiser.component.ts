@@ -13,7 +13,7 @@ export class VisualiserComponent implements OnInit {
   constructor(private villeService: VilleService) { }
 
   ngOnInit() {
-    this.villeService.getAllVilles().subscribe(
+    this.villeService.getLastPredictions().subscribe(
       data => this.villes = data,
       error => console.log(error)
     );

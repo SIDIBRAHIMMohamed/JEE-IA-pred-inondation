@@ -39,4 +39,9 @@ public class InondationZoneServiceImpl implements InondationZoneService{
     public void deleteInondationZoneById(Long id) {
     	inondationZoneRepository.deleteById(id);
     }
+
+    @Override
+    public List<InondationZone> geLastInsertedInondationZone() {
+        return (List<InondationZone>) inondationZoneRepository.findByLastInsertedDate();
+    }
 }

@@ -10,10 +10,14 @@ export class VilleService {
 
   constructor(private http:HttpClient,) { }
 
-  
+
   villes: Ville[]=[];
-     
+
   getAllVilles():Observable<Ville[]>{
     return this.http.get<Ville[]>('http://localhost:8082/api/inondationZones');
+  }
+
+  getLastPredictions():Observable<Ville[]>{
+    return this.http.get<Ville[]>('http://localhost:8082/api/inondationZones/lastInserted');
   }
 }

@@ -20,6 +20,7 @@ public class InondationZone {
     private String topography;
     private int riverCapacity;
     private String soilType;
+    @Temporal(TemporalType.DATE)
     private Date date;
     private String ville;
     private double flooded;

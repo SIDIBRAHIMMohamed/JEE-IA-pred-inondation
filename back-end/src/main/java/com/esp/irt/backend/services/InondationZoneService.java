@@ -11,6 +11,8 @@ import com.esp.irt.backend.entities.InondationZone;
 public interface InondationZoneService {
     List<InondationZone> getAllInondationZones();
 
+    List<InondationZone> geLastInsertedInondationZone();
+
     Optional<InondationZone> getInondationZoneById(Long id);
 
     InondationZone saveInondationZone(InondationZone inondationZone);

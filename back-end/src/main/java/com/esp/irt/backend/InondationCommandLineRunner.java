@@ -25,13 +25,11 @@ import weka.core.DenseInstance;
 import weka.core.Instances;
 import weka.classifiers.functions.LinearRegression;
 import weka.core.Instance;
-
+import weka.core.SerializationHelper;
 
 @Component
 public class InondationCommandLineRunner implements CommandLineRunner {
-  @Autowired
-  private InondationZoneRepository inondationZoneRepository;
-  
+
   public int getTopography(String name){
     if(name == "low") return 1;
     if(name == "high") return 2;
@@ -46,17 +44,14 @@ public class InondationCommandLineRunner implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
        
-      
-
 	  // Load data from Excel file
-      Workbook workbook = new XSSFWorkbook(new File("/home/mohamed/Downloads/zone d'innodation.xlsx"));
+      Workbook workbook = new XSSFWorkbook(new File("src/main/resources/inondationZones.xlsx"));
       Sheet sheet = workbook.getSheetAt(0);
       DataFormatter formatter = new DataFormatter();
       Instances data = new Instances("InundationZoneData", getAttributes(), sheet.getPhysicalNumberOfRows());
       data.setClassIndex(5);
-      List<InondationZone> zones = new ArrayList<>();
       //sheet.getPhysicalNumberOfRows()
-      for (int i = 1; i < 46 ; i++) {
+      for (int i = 1; i < sheet.getPhysicalNumberOfRows() ; i++) {
           Row row = sheet.getRow(i);
           if (row != null) {
         	  Instance instance = new DenseInstance(getAttributes().size());
@@ -92,182 +87,11 @@ public class InondationCommandLineRunner implements CommandLineRunner {
       System.out.println("Root mean squared error: " + evaluation.rootMeanSquaredError());
       System.out.println("R-squared: " + evaluation.correlationCoefficient());
       
-    //   NKTT
-        Instance nktt = new DenseInstance(getAttributes().size());
-        InondationZone i = new InondationZone(null,0.8,10.0,"low",1000,"sand",new Date(), "Nouakchott",0.0);
-        nktt.setValue(0, i.getPrecipitation()); // precipitation
-        nktt.setValue(1, i.getWaterLevel());  // waterLevel
-        nktt.setValue(2, getTopography(i.getTopography()));   // topography
-        nktt.setValue(3, i.getRiverCapacity()); // riverCapacity
-        nktt.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // nktt.setValue(5, i.getDate().getTime()); // date (as a string)
-        nktt.setDataset(data);
-        double predictedZone = model.classifyInstance(nktt);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
-    //  NDB
-        Instance ndb = new DenseInstance(getAttributes().size());
-        i = new InondationZone(null,0.9,10.9,"low",1200,"sand",new Date(), "Nouadhibou",0.0);
-        ndb.setValue(0, i.getPrecipitation()); // precipitation
-        ndb.setValue(1, i.getWaterLevel());  // waterLevel
-        ndb.setValue(2, getTopography(i.getTopography()));   // topography
-        ndb.setValue(3, i.getRiverCapacity()); // riverCapacity
-        ndb.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // ndb.setValue(5, i.getDate().getTime()); // date (as a string)
-        ndb.setDataset(data);
-        predictedZone = model.classifyInstance(ndb);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
-        // Zwrt
-        Instance zwrt = new DenseInstance(getAttributes().size());
-        i = new InondationZone(null,0.9,10.8,"low",1400,"sand",new Date(), "Tagant",0.0);
-        zwrt.setValue(0, i.getPrecipitation()); // precipitation
-        zwrt.setValue(1, i.getWaterLevel());  // waterLevel
-        zwrt.setValue(2, getTopography(i.getTopography()));   // topography
-        zwrt.setValue(3, i.getRiverCapacity()); // riverCapacity
-        zwrt.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // zwrt.setValue(5, i.getDate().getTime()); // date (as a string)
-        zwrt.setDataset(data);
-        predictedZone = model.classifyInstance(zwrt);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
-        // Adrar
-        Instance adrar = new DenseInstance(getAttributes().size());
-        i = new InondationZone(null,0.5,11.0,"low",800,"sand",new Date(), "Adrar",0.0);
-        adrar.setValue(0, i.getPrecipitation()); // precipitation
-        adrar.setValue(1, i.getWaterLevel());  // waterLevel
-        adrar.setValue(2, getTopography(i.getTopography()));   // topography
-        adrar.setValue(3, i.getRiverCapacity()); // riverCapacity
-        adrar.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // adrar.setValue(5, i.getDate().getTime()); // date (as a string)
-        adrar.setDataset(data);
-        predictedZone = model.classifyInstance(adrar);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
-        //Brakna
-        Instance brakna = new DenseInstance(getAttributes().size());
-        i = new InondationZone(null,0.4,12.4,"low",1300,"sand",new Date(), "Brakna",0.0);
-        brakna.setValue(0, i.getPrecipitation()); // precipitation
-        brakna.setValue(1, i.getWaterLevel());  // waterLevel
-        brakna.setValue(2, getTopography(i.getTopography()));   // topography
-        brakna.setValue(3, i.getRiverCapacity()); // riverCapacity
-        brakna.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // brakna.setValue(5, i.getDate().getTime()); // date (as a string)
-        brakna.setDataset(data);
-        predictedZone = model.classifyInstance(brakna);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
-        //Akjoujt
-        Instance akjoujt = new DenseInstance(getAttributes().size());
-        i = new InondationZone(null,1.4,10.4,"low",1100,"sand",new Date(), "Asaba",0.0);
-        akjoujt.setValue(0, i.getPrecipitation()); // precipitation
-        akjoujt.setValue(1, i.getWaterLevel());  // waterLevel
-        akjoujt.setValue(2, getTopography(i.getTopography()));   // topography
-        akjoujt.setValue(3, i.getRiverCapacity()); // riverCapacity
-        akjoujt.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // akjoujt.setValue(5, i.getDate().getTime()); // date (as a string)
-        akjoujt.setDataset(data);
-        predictedZone = model.classifyInstance(akjoujt);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
-        //Kiffa
-        Instance kiffa = new DenseInstance(getAttributes().size());
-        i = new InondationZone(null,1.2,12.0,"low",1200,"sand",new Date(), "Hodh El Chargui",0.0);
-        kiffa.setValue(0, i.getPrecipitation()); // precipitation
-        kiffa.setValue(1, i.getWaterLevel());  // waterLevel
-        kiffa.setValue(2, getTopography(i.getTopography()));   // topography
-        kiffa.setValue(3, i.getRiverCapacity()); // riverCapacity
-        kiffa.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // kiffa.setValue(5, i.getDate().getTime()); // date (as a string)
-        kiffa.setDataset(data);
-        predictedZone = model.classifyInstance(kiffa);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
-        //Nema
-        Instance nema = new DenseInstance(getAttributes().size());
-        i = new InondationZone(null,0.2,11.0,"low",8000,"sand",new Date(), "Hodh El Gharbi",0.0);
-        nema.setValue(0, i.getPrecipitation()); // precipitation
-        nema.setValue(1, i.getWaterLevel());  // waterLevel
-        nema.setValue(2, getTopography(i.getTopography()));   // topography
-        nema.setValue(3, i.getRiverCapacity()); // riverCapacity
-        nema.setValue(4, getSoilType(i.getSoilType()));   // topography
-        // nema.setValue(5, i.getDate().getTime()); // date (as a string)
-        nema.setDataset(data);
-        predictedZone = model.classifyInstance(nema);
-        i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-        inondationZoneRepository.save(i);
 
-         //Nema
-         Instance nem = new DenseInstance(getAttributes().size());
-         i = new InondationZone(null,0.2,11.0,"low",8000,"sand",new Date(), "Gorgol",0.0);
-         nema.setValue(0, 0.8); // precipitation
-         nema.setValue(1, 11.0);  // waterLevel
-         nema.setValue(2, 3);   // topography
-         nema.setValue(3, 1200); // riverCapacity
-         nema.setValue(4, 3);   // soilType
-        //  nema.setValue(5, 44996); // date (as a string)
-         nema.setDataset(data);
-         predictedZone = model.classifyInstance(nem);
-         i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-         inondationZoneRepository.save(i);
-         
-         //Tiris zemmour
-         Instance tiris= new DenseInstance(getAttributes().size());
-         i = new InondationZone(null,0.2,13.0,"high",9000,"sand",new Date(), "Tiris zemmour",0.0);
-         tiris.setValue(0, 0.8); // precipitation
-         tiris.setValue(1, 11.0);  // waterLevel
-         tiris.setValue(2, 3);   // topography
-         tiris.setValue(3, 1200); // riverCapacity
-         tiris.setValue(4, 3);   // soilType
-        //  nema.setValue(5, 44996); // date (as a string)
-         tiris.setDataset(data);
-         predictedZone = model.classifyInstance(tiris);
-         i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-         inondationZoneRepository.save(i);
-         
-         
-         //Inchiri
-         Instance inchiri= new DenseInstance(getAttributes().size());
-         i = new InondationZone(null,0.2,13.0,"high",9000,"sand",new Date(), "Inchiri",0.0);
-         inchiri.setValue(0, 0.8); // precipitation
-         inchiri.setValue(1, 11.0);  // waterLevel
-         inchiri.setValue(2, 3);   // topography
-         inchiri.setValue(3, 1200); // riverCapacity
-         inchiri.setValue(4, 3);   // soilType
-        //  nema.setValue(5, 44996); // date (as a string)
-         inchiri.setDataset(data);
-         predictedZone = model.classifyInstance(inchiri);
-         i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-         inondationZoneRepository.save(i);
-         
-         //Tegant
-         Instance tegant= new DenseInstance(getAttributes().size());
-         i = new InondationZone(null,0.2,13.0,"high",9000,"sand",new Date(), "Tegant",0.0);
-         tegant.setValue(0, 0.8); // precipitation
-         tegant.setValue(1, 11.0);  // waterLevel
-         tegant.setValue(2, 3);   // topography
-         tegant.setValue(3, 1200); // riverCapacity
-         tegant.setValue(4, 3);   // soilType
-        //  nema.setValue(5, 44996); // date (as a string)
-         tegant.setDataset(data);
-         predictedZone = model.classifyInstance(tegant);
-         i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-         inondationZoneRepository.save(i);
-         
-         //Trarza
-         Instance trarza= new DenseInstance(getAttributes().size());
-         i = new InondationZone(null,0.2,13.0,"high",9000,"sand",new Date(), "Trarza",0.0);
-         trarza.setValue(0, 0.8); // precipitation
-         trarza.setValue(1, 11.0);  // waterLevel
-         trarza.setValue(2, 3);   // topography
-         trarza.setValue(3, 1200); // riverCapacity
-         trarza.setValue(4, 3);   // soilType
-        //  nema.setValue(5, 44996); // date (as a string)
-         trarza.setDataset(data);
-         predictedZone = model.classifyInstance(trarza);
-         i.setFlooded(Double.parseDouble(String.format("%.1f", Math.max(0, Math.min(1, predictedZone)))));
-         inondationZoneRepository.save(i);
-         
+      // Save the model to a file
+        String filePath = "src/main/resources/model.model";
+        SerializationHelper.write(filePath, model);
+   
   }
 
   private static ArrayList<Attribute> getAttributes() {
