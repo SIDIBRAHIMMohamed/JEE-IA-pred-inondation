@@ -1,19 +1,40 @@
 <app-header></app-header>
 <table mat-table [dataSource]="villes" class="mat-elevation-z8" style="margin-top: 120px;">
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let ville"> {{ ville.ville }} </td>
+  </ng-container>
 
-    
-    <ng-container matColumnDef="nom">
-      <th mat-header-cell *matHeaderCellDef> Nom </th>
-      <td mat-cell *matCellDef="let ville"> {{ville.ville}} </td>
-    </ng-container>
-  
- 
-    <ng-container matColumnDef="innonde">
-      <th mat-header-cell *matHeaderCellDef> Risque(en %) </th>
-      <td mat-cell *matCellDef="let ville"> {{(ville.flooded)*100}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="['nom', 'innonde']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['nom', 'innonde'];"></tr>
-  </table>
-  
+  <ng-container matColumnDef="precipitation">
+    <th mat-header-cell *matHeaderCellDef> Précipitation </th>
+    <td mat-cell *matCellDef="let ville"> {{ ville.precipitation }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="topography">
+    <th mat-header-cell *matHeaderCellDef> Topographie </th>
+    <td mat-cell *matCellDef="let ville"> {{ ville.topography }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="riverCapacity">
+    <th mat-header-cell *matHeaderCellDef> Capacité de la rivière </th>
+    <td mat-cell *matCellDef="let ville"> {{ ville.riverCapacity }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="soilType">
+    <th mat-header-cell *matHeaderCellDef> Type de sol </th>
+    <td mat-cell *matCellDef="let ville"> {{ ville.soilType }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let ville"> {{ ville.date | date }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="innonde">
+    <th mat-header-cell *matHeaderCellDef> Risque (en %) </th>
+    <td mat-cell *matCellDef="let ville"> {{ ville.flooded * 100 }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['nom', 'precipitation', 'topography', 'riverCapacity', 'soilType', 'date', 'innonde']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['nom', 'precipitation', 'topography', 'riverCapacity', 'soilType', 'date', 'innonde']"></tr>
+</table>
