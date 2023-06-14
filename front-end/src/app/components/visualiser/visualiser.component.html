@@ -1,18 +1,11 @@
 <app-header></app-header>
+<div class="container">
+  <div class="row">
 
-
-<div class="form-container">
-  <form class="form" (ngSubmit)="filterData()">
-    <label for="filterDate">Filter by Date:</label>
-    <input type="date" id="filterDate" name="filterDate" [(ngModel)]="filterDate">
-    <button type="submit">Filter</button>
-  </form>
-</div>
-
-<table mat-table [dataSource]="villes" class="mat-elevation-z8"  >
-
-  <caption style="margin-top: 15px; margin-bottom: 15px;">Prediction pour {{villes[0]?.date}}</caption>
-
+      <caption  style="margin-top: 80px;margin-bottom: 10px;">Prediction pour {{villes[0].date}}</caption>
+      
+<table mat-table [dataSource]="villes" class="mat-elevation-z8 table" >
+ 
   <ng-container matColumnDef="nom">
     <th mat-header-cell *matHeaderCellDef> Nom </th>
     <td mat-cell *matCellDef="let ville"> {{ ville.ville }} </td>
@@ -51,3 +44,5 @@
   <tr mat-header-row *matHeaderRowDef="['nom', 'precipitation', 'topography', 'riverCapacity', 'soilType', 'date', 'innonde']"></tr>
   <tr mat-row *matRowDef="let row; columns: ['nom', 'precipitation', 'topography', 'riverCapacity', 'soilType', 'date', 'innonde']"></tr>
 </table>
+</div>
+</div>
