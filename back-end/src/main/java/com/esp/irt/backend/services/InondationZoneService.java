@@ -1,6 +1,7 @@
 package com.esp.irt.backend.services;
 
 import java.util.List;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
@@ -14,7 +15,7 @@ public interface InondationZoneService {
 
     List<InondationZone> geLastInsertedInondationZone();
 
-    List<InondationZone> getInondationZonesByDate(Date date);
+    List<InondationZone> getInondationZonesByDate(LocalDate date);
 
     Optional<InondationZone> getInondationZoneById(Long id);
 

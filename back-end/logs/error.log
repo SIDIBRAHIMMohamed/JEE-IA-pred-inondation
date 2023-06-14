@@ -1,19 +1,10 @@
-2023-06-14 11:45:41 [main] ERROR c.esp.irt.backend.BackEndApplication - This is error
-2023-06-14 11:50:43 [main] ERROR c.esp.irt.backend.BackEndApplication - This is error
-2023-06-14 11:53:46 [main] ERROR c.esp.irt.backend.BackEndApplication - This is error
-2023-06-14 11:59:31 [main] ERROR c.esp.irt.backend.BackEndApplication - This is error
-2023-06-14 12:12:30 [main] ERROR o.s.boot.SpringApplication - Application run failed
-java.lang.IllegalStateException: Failed to execute CommandLineRunner
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:770)
-	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:751)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.esp.irt.backend.BackEndApplication.main(BackEndApplication.java:15)
-Caused by: java.lang.NumberFormatException: For input string: "RAND()*(2-0)"
-	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
-	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
-	at java.base/java.lang.Double.parseDouble(Double.java:651)
-	at com.esp.irt.backend.InondationCommandLineRunner.run(InondationCommandLineRunner.java:61)
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:767)
-	... 5 common frames omitted
+2023-06-14 14:53:11 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7be2f512, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@435848de, org.springframework.security.web.context.SecurityContextHolderFilter@7719b257, org.springframework.security.web.header.HeaderWriterFilter@5c519da4, org.springframework.web.filter.CorsFilter@48971262, org.springframework.security.web.authentication.logout.LogoutFilter@72557e0d, com.esp.irt.backend.config.JwtRequestFilter@192ecf8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@681302ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@618d2191, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19d043a8, org.springframework.security.web.session.SessionManagementFilter@1da40ae8, org.springframework.security.web.access.ExceptionTranslationFilter@253a8bdb, org.springframework.security.web.access.intercept.AuthorizationFilter@9063080]
+2023-06-14 14:53:11 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-06-14 14:53:11 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Ant [pattern='/h2-console/**']
+2023-06-14 14:53:12 [main] ERROR c.esp.irt.backend.BackEndApplication - This is error
+2023-06-14 14:53:14 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /inondationZones
+2023-06-14 14:53:14 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-06-14 14:53:14 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2023-06-14 14:53:14 [http-nio-8082-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2023-06-14 14:53:14 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2023-06-14 14:53:14 [http-nio-8082-exec-1] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access

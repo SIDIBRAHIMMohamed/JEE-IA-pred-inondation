@@ -1,6 +1,7 @@
 package com.esp.irt.backend.controller;
 
 import java.util.List;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
@@ -63,7 +64,7 @@ public class InondationZoneController {
     }
 
     @GetMapping("/filterByDate")
-    public List<InondationZone> getInondationZonesByDate(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+    public List<InondationZone> getInondationZonesByDate(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
         return inondationZoneService.getInondationZonesByDate(date);
     }
 }

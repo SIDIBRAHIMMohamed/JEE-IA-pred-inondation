@@ -17,7 +17,6 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { UserComponent } from './components/user/user.component';
 import { HeaderComponent } from './components/header/header.component';
 import { VisualiserComponent } from './components/visualiser/visualiser.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +28,8 @@ import { VisualiserComponent } from './components/visualiser/visualiser.componen
     MapComponent,
     UserComponent,
     HeaderComponent,
-    VisualiserComponent,
-  ],
+    VisualiserComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

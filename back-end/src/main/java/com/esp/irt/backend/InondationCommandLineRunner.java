@@ -3,16 +3,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import com.esp.irt.backend.repository.InondationZoneRepository;
+import com.esp.irt.backend.services.Datagenerated;
+import com.esp.irt.backend.services.GenarateDataService;
 import com.esp.irt.backend.entities.InondationZone;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-
+import java.util.concurrent.TimeUnit;
 import java.lang.*;
 import java.text.DecimalFormat;
-
+import org.apache.avro.JsonProperties.Null;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -26,11 +28,14 @@ import weka.core.Instances;
 import weka.classifiers.functions.LinearRegression;
 import weka.core.Instance;
 import weka.core.SerializationHelper;
-
 @Component
 public class InondationCommandLineRunner implements CommandLineRunner {
-
-  public int getTopography(String name){
+    @Autowired
+    private GenarateDataService dataservice;
+    @Autowired
+    private InondationZoneRepository inondationZoneRepository;
+    
+    public int getTopography(String name){
     if(name == "low") return 1;
     if(name == "high") return 2;
     else return 3;
@@ -40,10 +45,10 @@ public class InondationCommandLineRunner implements CommandLineRunner {
     if(name == "sand") return 2;
     else return 3;
    }
-
+   
   @Override
   public void run(String... args) throws Exception {
-       
+
 	  // Load data from Excel file
       Workbook workbook = new XSSFWorkbook(new File("src/main/resources/inondationZones.xlsx"));
       Sheet sheet = workbook.getSheetAt(0);
@@ -69,7 +74,6 @@ public class InondationCommandLineRunner implements CommandLineRunner {
           }
       }
       workbook.close();      
-
       // Split data into training and testing sets
       data.randomize(new Random());
       int trainSize = (int) Math.round(data.numInstances() * 0.8);
@@ -92,7 +96,17 @@ public class InondationCommandLineRunner implements CommandLineRunner {
       // Save the model to a file
         String filePath = "src/main/resources/model.model";
         SerializationHelper.write(filePath, model);
-   
+        /* 
+        Datagenerated data1 =new Datagenerated();
+        for(int i=0;i<=50;i++){
+            InondationZone inondationZone=new InondationZone();
+            data1=dataservice.generateRandomData();
+            inondationZone=dataservice.convertdataToiNd(data1);
+            if(inondationZoneRepository.findByVille(inondationZone.getVille()).isEmpty())
+            inondationZoneRepository.save(inondationZone);
+            
+        }
+        */
   }
 
   private static ArrayList<Attribute> getAttributes() {
@@ -106,7 +120,8 @@ public class InondationCommandLineRunner implements CommandLineRunner {
 	    attributes.add(new Attribute("Flooded"));
 	    return attributes;
 	}
-
+    
+   
 }
 
 

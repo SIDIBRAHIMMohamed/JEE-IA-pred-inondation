@@ -1,6 +1,7 @@
 package com.esp.irt.backend.serviceImpl;
 
 import java.util.List;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class InondationZoneServiceImpl implements InondationZoneService{
     }
 
     @Override
-    public List<InondationZone> getInondationZonesByDate(Date date) {
+    public List<InondationZone> getInondationZonesByDate(LocalDate date) {
         return (List<InondationZone>) inondationZoneRepository.findByDate(date);
     }
 }
