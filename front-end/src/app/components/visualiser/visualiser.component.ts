@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-import { Ville } from 'src/app/models/ville';
-import { VilleService } from 'src/app/services/ville.service';
+import { Ville } from 'app/models/ville';
+import { VilleService } from 'app/services/ville.service';
 
 @Component({
   selector: 'app-visualiser',

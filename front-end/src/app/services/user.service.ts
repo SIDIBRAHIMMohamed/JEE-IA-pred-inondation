@@ -16,7 +16,7 @@ export class UserService {
 
 
   signUp(user : User){ 
-    return this.http.post('api/signup', user);
+    return this.http.post('http://localhost:8082/api/signup', user);
   }
   
   login(email:any, password:any):Observable<Token>{
@@ -24,7 +24,7 @@ export class UserService {
     localStorage.clear()
     let params = new HttpParams().set('email', email).set('password', password);
 
-    return this.http.post<Token>('api/authenticate', params)
+    return this.http.post<Token>('http://localhost:8082/api/authenticate', params)
     .pipe(
       tap(res => localStorage.setItem('auth-token', res.accessToken)),
           );

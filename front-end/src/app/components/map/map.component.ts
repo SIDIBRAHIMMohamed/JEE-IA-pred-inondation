@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Control } from 'leaflet';
 import * as d3 from 'd3';
-import { forkJoin } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { HeaderComponent } from '../header/header.component';
-import { MapService } from 'src/app/services/map.service';
+import { MapService } from 'app/services/map.service';
 
 @Component({
   selector: 'app-map',
@@ -51,7 +49,7 @@ export class MapComponent implements OnInit {
           const cityName = feature?.properties.ADM2_EN;
           const cityNumber = this.getMoughataaProbability(cityName, cityData);
           return {
-            fillColor: colorScale(cityNumber),
+            fillColor: cityNumber === 10 ? 'black' : colorScale(cityNumber),
             fillOpacity: 0.7,
             color: 'black',
             weight: 1
@@ -93,8 +91,7 @@ export class MapComponent implements OnInit {
     if (city) {
       return city.flooded;
     } else {
-      const randomNumber = Math.random();
-      return Number(randomNumber.toFixed(2));
+      return 10;
   
     }
   }
