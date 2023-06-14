@@ -1,6 +1,7 @@
 package com.esp.irt.backend.controller;
 
 import java.util.List;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.esp.irt.backend.entities.InondationZone;
 import com.esp.irt.backend.services.InondationZoneService;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/inondationZones")
@@ -56,5 +60,10 @@ public class InondationZoneController {
     @GetMapping("/lastInserted")
     public List<InondationZone> getLastInsertedInondationZone() {
         return inondationZoneService.geLastInsertedInondationZone();
+    }
+
+    @GetMapping("/filterByDate")
+    public List<InondationZone> getInondationZonesByDate(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+        return inondationZoneService.getInondationZonesByDate(date);
     }
 }

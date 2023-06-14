@@ -1,6 +1,7 @@
 package com.esp.irt.backend.services;
 
 import java.util.List;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -12,6 +13,8 @@ public interface InondationZoneService {
     List<InondationZone> getAllInondationZones();
 
     List<InondationZone> geLastInsertedInondationZone();
+
+    List<InondationZone> getInondationZonesByDate(Date date);
 
     Optional<InondationZone> getInondationZoneById(Long id);
 

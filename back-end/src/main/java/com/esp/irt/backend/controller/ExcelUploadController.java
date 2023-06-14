@@ -1,11 +1,9 @@
 package com.esp.irt.backend.controller;
 
+
+import java.util.*;
+import org.apache.poi.ss.usermodel.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -62,10 +60,12 @@ public class ExcelUploadController {
     @PostMapping("/predict")
     public ResponseEntity<String> uploadEtudiantsData(@RequestBody List<Map<String, String>> data) throws IOException {
         if (data != null && !data.isEmpty()) {
-            Date date = new Date();
+            // Date date = new Date();
             List<InondationZone> inondationZones = new ArrayList<>();
             for (Map<String, String> row : data) {
                 Instance pred = new DenseInstance(getAttributes().size());
+                double excelDateValue = Double.parseDouble(row.get("Date"));
+                Date date = DateUtil.getJavaDate(excelDateValue);
                 InondationZone i = new InondationZone(null,Double.parseDouble(row.get("precipitation")),Double.parseDouble(row.get("waterLevel")),row.get("topography"),Integer.parseInt(row.get("riverCapacity")),row.get("soilType"),date, row.get("ville"),0.0);
                 pred.setValue(0, i.getPrecipitation()); // precipitation
                 pred.setValue(1, i.getWaterLevel());  // waterLevel

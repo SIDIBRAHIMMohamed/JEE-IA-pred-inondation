@@ -1,6 +1,7 @@
 package com.esp.irt.backend.serviceImpl;
 
 import java.util.List;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.esp.irt.backend.entities.InondationZone;
 import com.esp.irt.backend.repository.InondationZoneRepository;
 import com.esp.irt.backend.services.InondationZoneService;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Service
 public class InondationZoneServiceImpl implements InondationZoneService{
@@ -43,5 +45,10 @@ public class InondationZoneServiceImpl implements InondationZoneService{
     @Override
     public List<InondationZone> geLastInsertedInondationZone() {
         return (List<InondationZone>) inondationZoneRepository.findByLastInsertedDate();
+    }
+
+    @Override
+    public List<InondationZone> getInondationZonesByDate(Date date) {
+        return (List<InondationZone>) inondationZoneRepository.findByDate(date);
     }
 }

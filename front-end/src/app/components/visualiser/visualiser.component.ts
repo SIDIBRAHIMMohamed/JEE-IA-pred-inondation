@@ -9,6 +9,7 @@ import { VilleService } from 'src/app/services/ville.service';
 })
 export class VisualiserComponent implements OnInit {
   villes!: Ville[];
+  filterDate!: string;
 
   constructor(private villeService: VilleService) { }
 
@@ -19,5 +20,11 @@ export class VisualiserComponent implements OnInit {
     );
   }
 
+  filterData() {
+    this.villeService.filterByDate(this.filterDate).subscribe(
+      data => this.villes = data,
+      error => console.log(error)
+    );
+  }
 
 }

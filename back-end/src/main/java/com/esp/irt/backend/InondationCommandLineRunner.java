@@ -49,8 +49,8 @@ public class InondationCommandLineRunner implements CommandLineRunner {
       Sheet sheet = workbook.getSheetAt(0);
       DataFormatter formatter = new DataFormatter();
       Instances data = new Instances("InundationZoneData", getAttributes(), sheet.getPhysicalNumberOfRows());
-      data.setClassIndex(5);
-      //sheet.getPhysicalNumberOfRows()
+      data.setClassIndex(5); 
+
       for (int i = 1; i < sheet.getPhysicalNumberOfRows() ; i++) {
           Row row = sheet.getRow(i);
           if (row != null) {
@@ -69,6 +69,7 @@ public class InondationCommandLineRunner implements CommandLineRunner {
           }
       }
       workbook.close();      
+
       // Split data into training and testing sets
       data.randomize(new Random());
       int trainSize = (int) Math.round(data.numInstances() * 0.8);
