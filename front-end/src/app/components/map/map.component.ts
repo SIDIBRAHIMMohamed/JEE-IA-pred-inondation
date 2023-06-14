@@ -23,6 +23,7 @@ export class MapComponent implements OnInit {
     this.mapService.getMapData().subscribe(results => {
       const geoJSONData = results[0];
       const cityData = results[1];
+      console.log(cityData);
 
       this.mauritaniaGeoJSON = geoJSONData;
 
@@ -42,7 +43,7 @@ export class MapComponent implements OnInit {
       // Create a D3 color scale to map the city number to a color
       const colorScale = d3.scaleLinear<string>()
         .domain([0, 1])
-        .range(['#FFFFB2', '#B10026']);
+        .range(['#FFFFB2', '#880808']);
 
       // Add the GeoJSON layer to the map and style its features based on the city number
       L.geoJSON(this.mauritaniaGeoJSON, {
@@ -51,7 +52,7 @@ export class MapComponent implements OnInit {
           const cityNumber = this.getMoughataaProbability(cityName, cityData);
           return {
             fillColor: colorScale(cityNumber),
-            fillOpacity: 0.2,
+            fillOpacity: 0.7,
             color: 'black',
             weight: 1
           };
@@ -88,9 +89,9 @@ export class MapComponent implements OnInit {
 
 
   getMoughataaProbability(cityName: string, cityData: any[]): number {
-    const city = cityData.find(city => city.cityName === cityName);
+    const city = cityData.find(city => city.ville === cityName);
     if (city) {
-      return city.cityNumber;
+      return city.flooded;
     } else {
       const randomNumber = Math.random();
       return Number(randomNumber.toFixed(2));
