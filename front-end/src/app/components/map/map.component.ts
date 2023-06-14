@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { Control } from 'leaflet';
 import * as d3 from 'd3';
+import { forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HeaderComponent } from '../header/header.component';
+import { MapService } from 'src/app/services/map.service';
 
 @Component({
   selector: 'app-map',
@@ -12,23 +14,28 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class MapComponent implements OnInit {
 
-  mauritaniaGeoJSON: any; // Declare a variable to store the GeoJSON data
+  mauritaniaGeoJSON: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private mapService: MapService) { }
 
   ngOnInit(): void {
-    // Make an HTTP GET request to retrieve the GeoJSON data
-    this.http.get<any>('assets/mauritania.geojson').subscribe(data => {
-      // Store the GeoJSON data in the variable
-      this.mauritaniaGeoJSON = data;
-      
-      // Initialize the Leaflet map
-      const mymap = L.map('mapid').setView([20.0, -12.0], 6);
 
-      // Add the tile layer to the map
+    this.mapService.getMapData().subscribe(results => {
+      const geoJSONData = results[0];
+      const cityData = results[1];
+
+      this.mauritaniaGeoJSON = geoJSONData;
+
+      const latitude = 17.05786;
+      const longitude = -10.95173;
+
+      
+      const mymap = L.map('mapid').setView([latitude, longitude], 6);
+
       const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-        maxZoom: 19
+        maxZoom: 9,
+        minZoom: 6
       });
       tileLayer.addTo(mymap);
 
@@ -40,18 +47,18 @@ export class MapComponent implements OnInit {
       // Add the GeoJSON layer to the map and style its features based on the city number
       L.geoJSON(this.mauritaniaGeoJSON, {
         style: (feature) => {
-          const cityNumber = feature?.properties.number;
-          console.log(feature)
+          const cityName = feature?.properties.ADM2_EN;
+          const cityNumber = this.getMoughataaProbability(cityName, cityData);
           return {
             fillColor: colorScale(cityNumber),
-            fillOpacity: 0.8,
+            fillOpacity: 0.2,
             color: 'black',
             weight: 1
-          }
+          };
         },
         onEachFeature: (feature, layer) => {
-          const cityName = feature?.properties.name;
-          const cityNumber = feature?.properties.number;
+          const cityName = feature?.properties.ADM2_EN;
+          const cityNumber = this.getMoughataaProbability(cityName, cityData);
           const popupContent = `${cityName}, Risque d'inondation : ${cityNumber * 100}%`;
           layer.bindPopup(popupContent);
         }
@@ -74,9 +81,20 @@ export class MapComponent implements OnInit {
         return div;
       };
       legend.addTo(mymap);
-      
+      }
+    );
+  }
 
-  })
+
+
+  getMoughataaProbability(cityName: string, cityData: any[]): number {
+    const city = cityData.find(city => city.cityName === cityName);
+    if (city) {
+      return city.cityNumber;
+    } else {
+      const randomNumber = Math.random();
+      return Number(randomNumber.toFixed(2));
   
-}
+    }
+  }
 }
